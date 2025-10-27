@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercício de Respiração</title>
+  <link rel="stylesheet" href="../css/respiracao.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <button onclick="toggleDarkMode()" class="modo-btn" id="darkModeBtn">
+      <i class="fa-regular fa-moon"></i>
+    </button>
+
+    <div class="logo">
+      <img src="../img/logo.png" alt="Logo" style="height: 85px;" />
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="#sobre-nos">Sobre</a></li>
+      <li><a href="#" id="abrirPerfilLink" onclick="abrirPerfil()"><i class="fa-solid fa-user"></i></a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+
+
+
+  <h1>Vamos Respirar Juntos</h1>
+  <div id="circulo"></div>
+  <p id="textoRespiracao">Clique em "Iniciar" para começar</p>
+
+  <div class="botoes">
+    <button id="btnIniciar">Iniciar</button>
+    <button id="btnParar">Parar</button>
+    <button class="voltar" onclick="window.location.href='../index.html'">Voltar ao Inicio</button>
+
+  <script>
+   const texto = document.getElementById("textoRespiracao"); 
+const circulo = document.getElementById("circulo");
+const btnIniciar = document.getElementById("btnIniciar");
+const btnParar = document.getElementById("btnParar");
+const btnVoltar = document.getElementById("btnVoltar");
+
+const instrucoes = [
+  { texto: "Inspire profundamente...", duracao: 4000 },
+  { texto: "Segure...", duracao: 7000 },
+  { texto: "Expire devagar...", duracao: 8000 }
+];
+
+let repeticoes = 3;
+let estado = 0;
+let cicloAtual = 0;
+let timeout;
+
+function mostrarFase() {
+  // atualiza o texto imediatamente
+  texto.textContent = instrucoes[estado].texto;
+  texto.style.opacity = 1;
+
+  // animação do fade-out no final da fase
+  timeout = setTimeout(() => {
+    texto.style.opacity = 0;
+
+    // prepara próxima fase
+    estado++;
+    if (estado >= instrucoes.length) {
+      estado = 0;
+      cicloAtual++;
+      if (cicloAtual >= repeticoes) {
+        pararRespiracao();
+        return;
+      }
+    }
+
+    // chama a próxima fase após o fade
+    timeout = setTimeout(mostrarFase, 400); // 500ms de fade
+  }, instrucoes[estado].duracao);
+}
+
+function iniciarRespiracao() {
+  if (timeout) return;
+  circulo.classList.add("animar");
+  estado = 0;
+  cicloAtual = 0;
+  mostrarFase();
+}
+
+function pararRespiracao() {
+  clearTimeout(timeout);
+  timeout = null;
+  estado = 0;
+  cicloAtual = 0;
+  circulo.classList.remove("animar");
+  texto.textContent = 'Clique em "Iniciar" para começar';
+}
+
+function voltarInicio() {
+  pararRespiracao();
+}
+
+btnIniciar.addEventListener("click", iniciarRespiracao);
+btnParar.addEventListener("click", pararRespiracao);
+btnVoltar.addEventListener("click", voltarInicio);
+
+  </script>
+</body>
+</html>

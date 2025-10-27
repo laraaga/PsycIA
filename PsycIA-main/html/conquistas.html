@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PsycIA - Minhas Conquistas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/conquistas.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <button onclick="toggleDarkMode()" class="modo-btn" id="darkModeBtn">
+      <i class="fa-regular fa-moon"></i>
+    </button>
+
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo" style="height: 70px;" />
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="../index.html" id="abrirPerfilLink"><i class="fa-solid fa-user"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="conquistas">
+    <div class="conquistas-container">
+      <h2>🏆 Minhas Conquistas</h2>
+      <p>Aqui estão suas conquistas:</p>
+
+      <div class="cards-conquistas">
+        <div class="card-conquista">
+          <span>💬</span>
+          <h3>Primeira conversa</h3>
+          <p>Você iniciou sua primeira conversa no PsicIA!</p>
+        </div>
+
+        <div class="card-conquista">
+          <span>📅</span>
+          <h3>Semana tranquila</h3>
+          <p>Você entrou 3 vezes essa semana.</p>
+        </div>
+
+        <div class="card-conquista">
+          <span>⭐</span>
+          <h3>Meta alcançada</h3>
+          <p>Você registrou seu humor por 7 dias seguidos!</p>
+        </div>
+      </div>
+
+      <a href="index.html" class="btn-voltar">⬅ Voltar ao Perfil</a>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

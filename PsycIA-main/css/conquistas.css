@@ -1,0 +1,112 @@
+.conquistas {
+  width: 100%;
+  min-height: 100vh;
+  background: #d5f6fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.conquistas-container {
+  background: linear-gradient(135deg, #ffffff, #d0f8f4);
+  border-radius: 25px;
+  padding: 40px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.conquistas-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #1a1a3f;
+}
+
+.conquistas-container p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.cards-conquistas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+
+.card-conquista {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-conquista span {
+  font-size: 28px;
+}
+
+.card-conquista h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a3f;
+}
+
+.card-conquista p {
+  font-size: 14px;
+  color: #555;
+}
+
+.card-conquista:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.btn-voltar {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #a0e9d7, #d1f5d3);
+  color: #1a1a3f;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* ===== Dark Mode ===== */
+body.dark-mode .conquistas {
+  background: #0d1117;
+}
+
+body.dark-mode .conquistas-container {
+  background: linear-gradient(135deg, #1a1a2f, #2c4f4c);
+  color: #f0f6fc;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .card-conquista {
+  background: #2c4f4c;
+  color: #f0f6fc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .btn-voltar {
+  background: linear-gradient(135deg, #2c4f4c, #1a1a2f);
+  color: #f0f6fc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}

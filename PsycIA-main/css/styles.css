@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #d5f6fd;
+  overflow-x: hidden;
+}
+
+header {
+  background: url(../img/header.png);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav li:hover {
+  transform: translateY(-5px);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.chat-bar-container {
+  margin: 40px auto 80px;
+  max-width: 600px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.chat-bar-container input {
+  flex: 1;
+  padding: 15px 20px;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  background-color: #b9e4ff;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.chat-bar-container button {
+  background-color: #4970c0cc;
+  border: none;
+  border-radius: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  padding: 0;
+}
+
+.chat-bar-container button:hover {
+  background-color: #9b9b9b;
+}
+
+.chat-bar-container button img {
+  width: 24px;
+  height: 24px;
+}
+
+.chat-container {
+  position: relative;
+  max-width: 600px;
+  margin: 60px auto 20px;
+  background-color: #c9dbe6be;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message.user {
+  background-color: #a4d2f1;
+  color: #0a1f33;
+  align-self: flex-end;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+.message.bot {
+  background-color: #4f4a9c9d;
+  color: #1b1b1b;
+  align-self: flex-start;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+.message {
+  padding: 12px 16px;
+  border-radius: 15px;
+  max-width: 70%;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+.modo-btn {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  width: 48px;
+  height: 48px;
+}
+
+.modo-btn:hover {
+  background-color: #fff;
+  color: #1a1a3f;
+  transform: rotate(20deg) scale(1.1);
+}
+
+body.dark-mode .muito-ansioso { background: #7a2b2b; color: #f0f6fc; }
+body.dark-mode .ansioso { background: #8a5c2c; color: #f0f6fc; }
+body.dark-mode .neutro { background: #7a7a4f; color: #f0f6fc; }
+body.dark-mode .calmo { background: #2e5f36; color: #f0f6fc; }
+body.dark-mode .muito-calmo { background: #2c4f4c; color: #f0f6fc; }
+body.dark-mode #mensagem { color: #f0f6fc; }
+body.dark-mode .action-card {
+  background: #1a1a2f;
+  color: #f0f6fc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+body.dark-mode .action-card h4 { color: #f0f6fc; }
+body.dark-mode .action-card p { color: #d0d0d0; }
+body.dark-mode { background-color: #0d1117; color: #f0f6fc; }
+body.dark-mode header { background: url(../img/header2.png); }
+body.dark-mode nav a { color: #f0f6fc; }
+body.dark-mode .modo-btn { border-color: #f0f6fc; color: #f0f6fc; }
+body.dark-mode .modo-btn:hover { background-color: #f0f6fc; color: #161b22; transform: rotate(-20deg) scale(1.1); }
+body.dark-mode .sobre-nos .imagem img { filter: brightness(0.9); }
+
+/* ===== Seção Emoções ===== */
+#emocoes {
+  text-align: center;
+  margin: 30px 0;
+}
+#emocoes h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #1a1a3f;
+}
+.botoes-emocoes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.botoes-emocoes button {
+  border: none;
+  border-radius: 15px;
+  padding: 20px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+  background-color: #f0f0f0;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.botoes-emocoes button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.botoes-emocoes button:focus {
+  outline: 3px solid #4970c0;
+  box-shadow: 0 0 0 4px rgba(73,112,192,0.3);
+}
+/* Cores por emoção */
+.botoes-emocoes button.muito-ansioso { background-color: #ffd6d6; color: #7a2b2b; }
+.botoes-emocoes button.ansioso { background-color: #ffe7c2; color: #8a5c2c; }
+.botoes-emocoes button.neutro { background-color: #fffecf; color: #7a7a4f; }
+.botoes-emocoes button.calmo { background-color: #d1f5d3; color: #2e5f36; }
+.botoes-emocoes button.muito-calmo { background-color: #d0f8f4; color: #2c4f4c; }
+/* Estado ativo */
+.botoes-emocoes button.ativo {
+  outline: 3px solid #444;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+/* Mensagem de confirmação */
+#mensagem-registrada {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a3f;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#mensagem-registrada.show { opacity: 1; }
+/* ===== Dark Mode Emoções ===== */
+body.dark-mode .botoes-emocoes button.muito-ansioso { background: #7a2b2b; color: #f0f6fc; }
+body.dark-mode .botoes-emocoes button.ansioso { background: #8a5c2c; color: #f0f6fc; }
+body.dark-mode .botoes-emocoes button.neutro { background: #7a7a4f; color: #f0f6fc; }
+body.dark-mode .botoes-emocoes button.calmo { background: #2e5f36; color: #f0f6fc; }
+body.dark-mode .botoes-emocoes button.muito-calmo { background: #2c4f4c; color: #f0f6fc; }
+body.dark-mode .botoes-emocoes button:focus { box-shadow: 0 0 0 4px rgba(45,156,219,0.6); }
+
+.quick-actions {
+  margin-top: 40px;
+  padding: 0 10px;
+}
+.quick-actions h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1a1a3f;
+}
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.action-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.action-card:hover { transform: translateY(-5px); }
+.action-card h4 {
+  margin: 8px 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a3f;
+}
+.action-card p { font-size: 13px; color: #444; }
+.icon { font-size: 1.6rem; margin-bottom: 6px; }
+.blue { color: #2d9cdb; }
+.purple { color: #9b51e0; }
+.pink { color: #eb5757; }
+.green { color: #27ae60; }
+
+@media (max-width: 768px) {
+  header { padding: 10px 20px; flex-direction: column; gap: 10px; }
+  nav ul { justify-content: center; }
+  .actions-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .actions-grid { grid-template-columns: 1fr; }
+  .action-card { padding: 12px; }
+}
+
+/* Conquistas */
+.conquista {
+  max-width: 600px;
+  margin: 20px auto;
+  background: linear-gradient(135deg, #a0e9d7, #d1f5d3);
+  color: #1a1a3f;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  display: none;
+  position: relative;
+  overflow: hidden;
+}
+.conquista.confete::after {
+  content: "🎉🎉🎉";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 24px;
+  animation: cair 1s ease forwards;
+}
+@keyframes cair {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(40px) rotate(360deg); opacity: 0; }
+}
+.popup-conquista {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #a0e9d7, #d1f5d3);
+  padding: 20px 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 9999;
+  width: 250px;
+  text-align: center;
+  animation: popupIn 0.5s ease forwards;
+}
+.popup-conquista span { font-size: 28px; display: block; margin-bottom: 8px; }
+.popup-conquista p { font-weight: 600; font-size: 14px; margin-bottom: 10px; }
+.popup-conquista button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #1a1a3f;
+}
+body.dark-mode .popup-conquista {
+  background: linear-gradient(135deg, #2c4f4c, #1a1a2f);
+  color: #f0f6fc;
+}
+@keyframes popupIn {
+  0% { transform: translateY(100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+#listaConquistas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.conquista {
+  background: linear-gradient(135deg, #a0e9d7, #d1f5d3);
+  color: #1a1a3f;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: 600;
+  min-width: 140px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.conquista span { font-size: 24px; }
+body.dark-mode .conquista {
+  background: linear-gradient(135deg, #2c4f4c, #1a1a2f);
+  color: #f0f6fc;
+}
+body.dark-mode {
+  background: linear-gradient(to bottom right, #0d1117, #161b22);
+  color: #e0e6ed;
+}
+body.dark-mode h2 { color: #58a6ff; }
+body.dark-mode p.descricao { color: #9ba9b9; }
+
+/* ===== Modal Perfil ===== */
+.modal-perfil {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+}
+.modal-perfil.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+.modal-perfil .modal-content {
+  background: #ffffff;
+  color: #2a2a2a;
+  border-radius: 20px;
+  padding: 30px;
+  width: 340px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  animation: scaleUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+body.dark-mode .modal-perfil .modal-content {
+  background: #1f2a30;
+  color: #f0f6fc;
+}
+/* Título e descrição */
+.modal-content h2 { margin: 0; font-size: 22px; font-weight: 600; }
+.descricao-perfil { font-size: 14px; color: #555; }
+body.dark-mode .descricao-perfil { color: #c9d1d9; }
+/* Botão fechar */
+.fechar-modal {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: #666;
+  transition: transform 0.2s, color 0.2s;
+}
+.fechar-modal:hover { color: #000; transform: scale(1.1); }
+body.dark-mode .fechar-modal { color: #f0f6fc; }
+/* Opções do perfil */
+.perfil-opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.perfil-opcoes button {
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  color: #2a2a2a;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.perfil-opcoes button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+}
+body.dark-mode .perfil-opcoes button {
+  background: linear-gradient(135deg, #3a6073, #16222a);
+  color: #f0f6fc;
+}
+/* Animações */
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+@keyframes scaleUp { from {transform: scale(0.9);} to {transform: scale(1);} }
+/* ===== Conquistas dentro do perfil ===== */
+.conquistas-perfil {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+.conquistas-perfil .conquista {
+  background: linear-gradient(135deg, #a0e9d7, #d1f5d3);
+  color: #1a1a3f;
+  padding: 12px 18px;
+  border-radius: 18px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-weight: 600;
+  font-size: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.conquistas-perfil .conquista:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.conquistas-perfil .conquista span { font-size: 22px; }
+body.dark-mode .conquistas-perfil .conquista {
+  background: linear-gradient(135deg, #2c4f4c, #1a1a2f);
+  color: #f0f6fc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* === SEÇÃO SOBRE NÓS === */
+.sobre-nos {
+  background: #f6f8fa;
+  padding: 60px 20px;
+  border-top: 2px solid #dcdcdc50;
+  text-align: center;
+}
+.container-sobre-nos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 20px;
+}
+.sobre-nos h2 {
+  font-size: 2.2em;
+  color: #2a2a4a;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-left: 0;
+  width: 100%;
+  letter-spacing: 1px;
+}
+.descricao-site {
+  font-size: 1.1em;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cards-equipe {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.card-membro {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-membro:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.card-membro img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.card-membro h3 {
+  color: #2a2a4a;
+  font-size: 1.3em;
+  margin-bottom: 8px;
+}
+.card-membro p {
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+/* --- Responsivo --- */
+@media (max-width: 768px) {
+  .cards-equipe { flex-direction: column; align-items: center; }
+  .card-membro { width: 90%; }
+  .sobre-nos h2 { font-size: 1.8em; }
+  .descricao-site { font-size: 1em; }
+}

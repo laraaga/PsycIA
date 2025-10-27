@@ -1,14 +1,20 @@
-// --- Mensagem de boas-vindas ---
 window.onload = function () {
   const div = document.getElementById("boas-vindas");
   if (!div) return;
+
+  // Tenta pegar o apelido, se não existir pega o nome
+  const apelido = localStorage.getItem("apelido");
   const nome = localStorage.getItem("nomeUsuario");
   const genero = localStorage.getItem("generoUsuario");
-  if (nome && nome !== "anonimo") {
+
+  // Decide qual nome mostrar
+  const nomeParaMostrar = apelido && apelido !== "" ? apelido : nome;
+
+  if (nomeParaMostrar && nomeParaMostrar !== "anonimo") {
     let saudacao;
-    if (genero === "masculino") saudacao = `Olá, ${nome}! Seja bem-vindo 🧠✨`;
-    else if (genero === "feminino") saudacao = `Olá, ${nome}! Seja bem-vinda 🧠✨`;
-    else saudacao = `Olá, ${nome}! Seja bem-vinde 🧠✨`;
+    if (genero === "masculino") saudacao = `Olá, ${nomeParaMostrar}! Seja bem-vindo 🧠✨`;
+    else if (genero === "feminino") saudacao = `Olá, ${nomeParaMostrar}! Seja bem-vinda 🧠✨`;
+    else saudacao = `Olá, ${nomeParaMostrar}! Seja bem-vinde 🧠✨`;
     div.innerText = saudacao;
   } else {
     div.innerText = `Olá! Você está no modo anônimo 🌙`;
@@ -218,3 +224,6 @@ function registrarEmocao(emocao) {
     setTimeout(() => mensagem.classList.remove("show"), 3000);
   }
 }
+
+const config = JSON.parse(localStorage.getItem('configuracoes')) || {};
+// Agora você pode usar config.apelido, config.notificacoes, config.idioma, etc.

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configurações</title>
+  <link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+<body>
+  <div class="config-container">
+    <form id="configForm">
+      <div class="config-item">
+        <h2>🌙 Modo Escuro</h2>
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="config-item">
+        <h2>🌐 Idioma</h2>
+        <select id="idioma">
+          <option value="pt">Português</option>
+          <option value="en">Inglês</option>
+          <option value="es">Espanhol</option>
+        </select>
+      </div>
+      <div class="config-item">
+        <h2>👤 Apelido</h2>
+        <input type="text" id="apelido" maxlength="20" placeholder="Seu apelido">
+      </div>
+      <div class="config-item">
+        <h2>📧 E-mail</h2>
+        <input type="email" id="email" placeholder="seu@email.com">
+      </div>
+      <div class="config-item">
+        <h2>🔔 Notificações</h2>
+        <label class="switch">
+          <input type="checkbox" id="notificacoes">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="config-item">
+        <h2>💬 Sons do chat</h2>
+        <label class="switch">
+          <input type="checkbox" id="sonsChat">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="config-item">
+        <h2>🧘‍♂️ Duração da meditação</h2>
+        <select id="duracaoMeditacao">
+          <option value="5">5 minutos</option>
+          <option value="10">10 minutos</option>
+          <option value="15">15 minutos</option>
+        </select>
+      </div>
+      <div class="btn-container">
+        <button type="submit" class="btn" id="salvar">Salvar</button>
+        <span id="msgSucesso" style="display:none; ">Configurações salvas com sucesso!</span>
+        <button type="button" class="btn" onclick="window.location.href='../index.html'">Voltar ao Inicio</button>
+      </div>
+    </form>
+  </div>
+  <script src="../js/configuracoes.js"></script>
+</body>
+</html>

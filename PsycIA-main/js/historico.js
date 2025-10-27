@@ -89,3 +89,49 @@ atualizarGrafico();
 
 // Modo escuro
 function toggleDarkMode() { document.body.classList.toggle("dark-mode"); }
+
+
+
+const modalPerfil = document.getElementById("modalPerfil");
+const nomeUsuarioModal = document.getElementById("nomeUsuarioModal");
+const conquistasPerfil = document.getElementById("conquistasPerfil");
+
+function abrirPerfil() {
+  if (!modalPerfil) return;
+  modalPerfil.style.display = "flex";
+  const nome = localStorage.getItem("nomeUsuario") || "Usuário";
+  if (nomeUsuarioModal) nomeUsuarioModal.textContent = `Olá, ${nome}!`;
+  atualizarConquistasPerfil();
+}
+
+const conteudoModal = document.querySelector("#modalPerfil .modal-content");
+if (conteudoModal) {
+  conteudoModal.addEventListener("click", (event) => {
+    event.stopPropagation(); // impede o clique de fechar o modal
+  });
+}
+
+function fecharPerfil() {
+  if (modalPerfil) modalPerfil.style.display = "none";
+}
+
+function logout() {
+  localStorage.removeItem("nomeUsuario");
+  localStorage.removeItem("generoUsuario");
+  window.location.href = "html/login.html";
+}
+
+function atualizarConquistasPerfil() {
+  if (!conquistasPerfil) return;
+  conquistasPerfil.innerHTML = "";
+  document.querySelectorAll("#listaConquistas .conquista").forEach((c) => {
+    const clone = c.cloneNode(true);
+    conquistasPerfil.appendChild(clone);
+  });
+}
+
+if (modalPerfil) {
+  modalPerfil.addEventListener("click", (event) => {
+    if (event.target === modalPerfil) fecharPerfil();
+  });
+}

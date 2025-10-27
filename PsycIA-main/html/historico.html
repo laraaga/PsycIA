@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Histórico Emocional - Psyche IA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
   <link rel="stylesheet" href="../css/historico.css">
+  <link rel="stylesheet" href="../css/styles.css">
   <script src="../js/historico.js" defer></script>
  
 </head>
@@ -27,6 +30,27 @@
       </ul>
     </nav>
   </header>
+
+  <!-- Modal de Perfil (copiado do index) -->
+  <div id="modalPerfil" class="modal-perfil">
+  <div class="modal-content">
+    <button class="fechar-modal" onclick="fecharPerfil()">✖</button>
+
+    <h2>Meu Perfil 🌙</h2>
+    <p class="descricao-perfil">
+      Aqui você pode acompanhar seu bem-estar e progresso emocional 💛
+    </p>
+    
+    <div class="perfil-opcoes">
+      <!-- No futuro tu pode reativar as outras opções -->
+      <button onclick="window.open('html/historico.html', '_blank')">📖 Histórico Emocional</button>
+      <button onclick="window.open('../html/configuracoes.html', '_blank')">⚙️ Configuraçoes</button>
+      <button onclick="logout()">🚪 Sair da conta</button>
+      
+      
+    </div>
+  </div>
+</div>
 
   <h2>📖 Seu Histórico Emocional</h2>
   <p class="descricao">Veja como suas emoções variaram ao longo dos dias 💫</p>

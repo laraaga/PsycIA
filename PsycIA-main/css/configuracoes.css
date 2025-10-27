@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #d5f6fd;
+  overflow-x: hidden;
+  color: #1a1a3f;
+}
+
+.config-container {
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Mais espaçamento entre os blocos */
+}
+
+.config-item {
+  background: #c7ddf7b2;
+  padding: 20px 28px; /* Mais espaçamento interno */
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.config-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+
+.config-item h2 {
+  margin: 0;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.config-item input[type="text"],
+.config-item input[type="email"],
+.config-item select {
+  margin-left: 24px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #444c56;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: #1a1a3f;
+}
+
+.config-item input[type="checkbox"] {
+  margin-left: 24px;
+}
+.msgSucesso {
+  font-family: "Poppins", sans-serif;
+  color: green;
+  font-weight: 500;
+  margin-left: 15px;
+}
+/* Switch minimalista */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #444c56;
+  transition: 0.3s;
+  border-radius: 26px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #58a6ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Botões Salvar e Voltar */
+.btn {
+  background-color: #58a6ff;
+  color: #0d1117;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88,166,255,0.4);
+}
+
+/* Container dos botões */
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 32px; /* Mais espaçamento acima dos botões */
+}
+
+select {
+  border-radius: 10px;
+  padding: 5px 8px;
+  font-family: inherit;
+  background: #0d1117;
+  color: #e6edf3;
+  border: 1px solid #444c56;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background: linear-gradient(135deg, #0a1622 0%, #101926 100%);
+  color: #e0e6ed;
+}
+
+body.dark-mode .config-item {
+  background: #16213ab2;
+  box-shadow: 0 2px 10px rgba(24, 40, 72, 0.5);
+  color: #e0e6ed;
+}
+
+body.dark-mode .config-item:hover {
+  box-shadow: 0 4px 14px rgba(24, 40, 72, 0.7);
+}
+
+body.dark-mode .config-item h2 {
+  color: #58a6ff;
+}
+
+body.dark-mode .switch .slider {
+  background-color: #22304a;
+}
+
+body.dark-mode .switch input:checked + .slider {
+  background-color: #58a6ff;
+}
+
+body.dark-mode .slider:before {
+  background-color: #e0e6ed;
+}
+
+body.dark-mode .btn {
+  background-color: #22304a;
+  color: #58a6ff;
+}
+
+body.dark-mode .btn:hover {
+  background-color: #274472;
+  color: #e0e6ed;
+  box-shadow: 0 4px 12px rgba(88,166,255,0.2);
+}
+
+body.dark-mode select {
+  background: #16213a;
+  color: #e0e6ed;
+  border: 1px solid #22304a;
+}

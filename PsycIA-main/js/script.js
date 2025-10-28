@@ -169,14 +169,13 @@ function toggleDarkMode() {
 // --- Perfil e conquistas ---
 const modalPerfil = document.getElementById("modalPerfil");
 const nomeUsuarioModal = document.getElementById("nomeUsuarioModal");
-const conquistasPerfil = document.getElementById("conquistasPerfil");
+
 
 function abrirPerfil() {
   if (!modalPerfil) return;
   modalPerfil.style.display = "flex";
   const nome = localStorage.getItem("nomeUsuario") || "Usuário";
-  if (nomeUsuarioModal) nomeUsuarioModal.textContent = `Olá, ${nome}!`;
-  atualizarConquistasPerfil();
+
 }
 
 const conteudoModal = document.querySelector("#modalPerfil .modal-content");
@@ -196,14 +195,7 @@ function logout() {
   window.location.href = "html/login.html";
 }
 
-function atualizarConquistasPerfil() {
-  if (!conquistasPerfil) return;
-  conquistasPerfil.innerHTML = "";
-  document.querySelectorAll("#listaConquistas .conquista").forEach((c) => {
-    const clone = c.cloneNode(true);
-    conquistasPerfil.appendChild(clone);
-  });
-}
+
 
 if (modalPerfil) {
   modalPerfil.addEventListener("click", (event) => {

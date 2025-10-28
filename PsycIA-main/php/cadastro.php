@@ -29,7 +29,7 @@ $stmt_check->execute();
 $result = $stmt_check->get_result();
 
 if ($result->num_rows > 0) {
-    echo "<script>alert('Esse email já está cadastrado!'); window.location.href='cadastro.html';</script>";
+    echo "<script>alert('Esse email já está cadastrado!'); window.location.href='../cadastro.html';</script>";
     exit();
 }
 
@@ -39,9 +39,9 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssss", $nome, $email, $senha_hash, $genero);
 
 if ($stmt->execute()) {
-    echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href='login.html';</script>";
+    echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href='../login.html';</script>";
 } else {
-    echo "<script>alert('Erro ao cadastrar.'); window.location.href='cadastro.html';</script>";
+    echo "<script>alert('Erro ao cadastrar.'); window.location.href='../cadastro.html';</script>";
 }
 
 $stmt->close();

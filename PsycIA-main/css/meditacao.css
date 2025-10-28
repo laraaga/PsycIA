@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 body {
   background: linear-gradient(120deg, #e6f6fc 0%, #b3e0f7 100%);
   font-family: 'Poppins', Arial, sans-serif;
@@ -8,6 +9,7 @@ body {
   padding: 0;
 }
 
+/* Header */
 header {
   background: url(../img/header.png);
   display: flex;
@@ -16,7 +18,6 @@ header {
   padding: 10px 30px;
   flex-wrap: wrap;
 }
-
 nav ul {
   list-style: none;
   display: flex;
@@ -24,11 +25,7 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-
-nav li:hover {
-  transform: translateY(-5px);
-}
-
+nav li:hover { transform: translateY(-5px); }
 nav a {
   color: white;
   text-decoration: none;
@@ -36,7 +33,6 @@ nav a {
   display: flex;
   align-items: center;
 }
-
 .modo-btn {
   background-color: transparent;
   border: 2px solid #fff;
@@ -53,43 +49,13 @@ nav a {
   width: 48px;
   height: 48px;
 }
-
 .modo-btn:hover {
   background-color: #fff;
   color: #1a1a3f;
   transform: rotate(20deg) scale(1.1);
 }
 
-/* DARK MODE HEADER */
-body.dark-mode header {
-  background: url(../../img/header2.png);
-}
-body.dark-mode nav a {
-  color: #f0f6fc;
-}
-body.dark-mode .modo-btn {
-  border-color: #f0f6fc;
-  color: #f0f6fc;
-}
-body.dark-mode .modo-btn:hover {
-  background-color: #f0f6fc;
-  color: #161b22;
-  transform: rotate(-20deg) scale(1.1);
-}
-
-/* RESPONSIVO HEADER */
-@media (max-width: 768px) {
-  header {
-    padding: 10px 20px;
-    flex-direction: column;
-    gap: 10px;
-  }
-  nav ul {
-    justify-content: center;
-  }
-}
-
-/* ===== DARK MODE HEADER & BODY ===== */
+/* Dark Mode */
 body.dark-mode {
   background: linear-gradient(120deg, #181c24 0%, #232a36 100%);
   color: #e0e6ed;
@@ -97,9 +63,7 @@ body.dark-mode {
 body.dark-mode header {
   background: url(../img/header2.png);
 }
-body.dark-mode nav a {
-  color: #f0f6fc;
-}
+body.dark-mode nav a { color: #f0f6fc; }
 body.dark-mode .modo-btn {
   border-color: #f0f6fc;
   color: #f0f6fc;
@@ -110,145 +74,152 @@ body.dark-mode .modo-btn:hover {
   transform: rotate(-20deg) scale(1.1);
 }
 
-/* ===== DARK MODE ELEMENTOS PRINCIPAIS ===== */
-body.dark-mode h1 {
-  color: #58a6ff;
-}
-body.dark-mode .flor-lotus {
-  filter: brightness(0.8);
-}
-body.dark-mode select, body.dark-mode .audio-controls button {
-  background: #232a36;
-  color: #e0e6ed;
-  border: 1px solid #4970c0;
-}
-body.dark-mode .cronometro {
-  background: #232a36;
-  color: #58a6ff;
-}
-body.dark-mode .incentivo {
-  color: #7ecfff;
-}
-body.dark-mode button, body.dark-mode .voltar {
-  background: #4970c0cc;
-  color: #e0e6ed;
-}
-body.dark-mode button:hover, body.dark-mode .voltar:hover {
-  background: linear-gradient(90deg, #4970c0cc, #58a6ff);
-}
-
-/* ===== RESPONSIVO HEADER ===== */
-@media (max-width: 768px) {
-  header {
-    padding: 10px 20px;
-    flex-direction: column;
-    gap: 10px;
-  }
-  nav ul {
-    justify-content: center;
-  }
-}
-
-/* ===== RESTANTE DO SEU CSS ===== */
-h1 {
-  font-size: 2.2em;
-  margin-top: 40px;
-  color: #226fa4;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-.flor-lotus {
-  width: 90px;
-  margin: 20px 0;
-  animation: girar 12s linear infinite;
-}
-@keyframes girar {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
-}
-label, select {
-  font-size: 1.1em;
-  margin: 10px 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Main */
+h1 { font-size: 2.2em; margin-top: 40px; color: #226fa4; font-weight: 700; }
+label, select { font-size: 1.1em; margin: 10px auto; display: block; }
 select {
-  padding: 8px 16px;
-  border-radius: 12px;
-  border: 1px solid #bcdff1;
-  background-color: #e0f2fa;
-  color: #144b75;
-  font-size: 1em;
-  margin-bottom: 20px;
+  padding: 8px 16px; border-radius: 12px; border: 1px solid #bcdff1;
+  background-color: #e0f2fa; color: #144b75; font-size: 1em; margin-bottom: 20px;
 }
-.audio-controls {
-  margin: 10px 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
+.audio-controls { margin: 10px 0 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
 .audio-controls button {
-  background: #d6f0fa;
-  color: #226fa4;
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.3em;
-  cursor: pointer;
-  transition: background 0.2s;
+  background: #d6f0fa; color: #226fa4; border: none; border-radius: 50%;
+  width: 38px; height: 38px; font-size: 1.3em; cursor: pointer; transition: background 0.2s;
 }
-.audio-controls button:hover {
-  background: #b3e0f7;
-}
-#nomeSom {
-  font-size: 1em;
-  color: #226fa4;
-  font-weight: 500;
-}
-.orientacao {
-  margin-top: 20px;
-  font-size: 1.2em;
-}
-.incentivo {
-  margin-top: 10px;
-  font-size: 1em;
-  color: #5588bb;
-}
-.cronometro {
-  margin: 30px auto 20px;
-  padding: 10px 30px;
-  font-size: 2.2em;
-  background-color: #d6f0fa;
-  border-radius: 16px;
-  width: fit-content;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  letter-spacing: 2px;
-  font-weight: 600;
-  color: #4970c0;
-}
+.audio-controls button:hover { background: #b3e0f7; }
+#nomeSom { font-size: 1em; color: #226fa4; font-weight: 500; }
+
+.orientacao { margin-top: 20px; font-size: 1.2em; }
+.incentivo { margin-top: 10px; font-size: 1em; color: #5588bb; }
+
 button, .voltar {
-  background-color: #3695d4;
-  color: white;
-  padding: 12px 28px;
-  margin: 12px 8px;
-  border: none;
-  border-radius: 20px;
-  font-size: 1.1em;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  background-color: #3695d4; color: white; padding: 12px 28px; margin: 12px 8px;
+  border: none; border-radius: 20px; font-size: 1.1em; font-weight: 600;
+  cursor: pointer; transition: background 0.3s, transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 button:hover, .voltar:hover {
   background: linear-gradient(90deg, #a4d2f1, #4970c0cc);
   transform: scale(1.05);
 }
+
+/* Timer Circular */
+.timer-container { position: relative; width: 180px; height: 180px; margin: 30px auto; }
+.timer-container svg { transform: rotate(-90deg); }
+.timer-container circle { fill: none; stroke-width: 12; }
+.timer-bg { stroke: #b3e0f7; }
+.timer-progress { stroke: #3695d4; stroke-linecap: round; stroke-dasharray: 502.65; stroke-dashoffset: 502.65; transition: stroke-dashoffset 1s linear; }
+.timer-text {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-size: 2em; font-weight: 600; color: #144b75; text-align: center;
+}
+body.dark-mode .timer-text { color: #58a6ff; }
+body.dark-mode .timer-bg { stroke: #232a36; }
+body.dark-mode .timer-progress { stroke: #58a6ff; }
+
+/* Responsivo */
 @media (max-width: 600px) {
   h1 { font-size: 1.4em; }
-  .flor-lotus { width: 60px; }
-  .cronometro { font-size: 1.3em; padding: 8px 10px; }
-  button, .voltar { font-size: 1em; padding: 10px 18px; }
+  .timer-container { width: 140px; height: 140px; }
+  .timer-text { font-size: 1.5em; }
+  select, button, .voltar { font-size: 1em; padding: 10px 18px; }
 }
+.modal {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1000;
+      transition: opacity 0.2s;
+    }
+    .modal-content {
+      background: #fff; color: #144b75;
+      padding: 32px 24px 24px 24px;
+      border-radius: 18px;
+      min-width: 280px; max-width: 95vw;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      text-align: center;
+      position: relative;
+      animation: modalShow 0.3s;
+    }
+    @keyframes modalShow { from {transform: scale(0.9); opacity:0;} to {transform: scale(1); opacity:1;} }
+    .modal-content h2 { margin-top: 0; font-size: 1.3em; }
+    .modal-content button {
+      margin: 12px 8px 0 8px;
+      padding: 10px 22px;
+      border-radius: 16px;
+      border: none;
+      background: #3695d4;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .modal-content button:hover { background: #4970c0cc; transform: scale(1.05);}
+    #listaTipos { list-style: none; padding: 0; margin: 0 0 10px 0; }
+    #listaTipos li { margin: 10px 0; }
+    #listaTipos button {
+      width: 100%;
+      background: #e0f2fa;
+      color: #144b75;
+      border: 1px solid #bcdff1;
+      font-size: 1.05em;
+      margin: 0;
+      padding: 12px 0;
+      border-radius: 12px;
+      transition: background 0.2s, color 0.2s;
+    }
+    #listaTipos button:hover {
+      background: #b3e0f7;
+      color: #226fa4;
+    }
+    body.dark-mode .modal-content { background: #232a36; color: #e0e6ed; }
+    body.dark-mode #listaTipos button { background: #232a36; color: #e0e6ed; border: 1px solid #4970c0;}
+    body.dark-mode #listaTipos button:hover { background: #4970c0cc; color: #fff;}
+    /* Painel de passos */
+    #painelPassos {
+      display: none;
+      background: #e0f2fa;
+      color: #144b75;
+      border-radius: 18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      margin: 30px auto 0 auto;
+      max-width: 400px;
+      padding: 24px 18px 18px 18px;
+      text-align: left;
+      position: relative;
+      animation: painelShow 0.4s;
+    }
+    @keyframes painelShow { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
+    #painelPassos h3 { margin-top: 0; font-size: 1.15em; }
+    #passoAtual {
+      font-size: 1.15em;
+      margin: 18px 0 10px 0;
+      min-height: 48px;
+      font-weight: 500;
+    }
+    #painelPassos .passo-controls {
+      display: flex; justify-content: space-between; margin-top: 10px;
+    }
+    #painelPassos button {
+      background: #3695d4;
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 8px 18px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 0 4px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    #painelPassos button:hover { background: #4970c0cc; transform: scale(1.05);}
+    #painelPassos .fechar-painel {
+      position: absolute; top: 10px; right: 14px;
+      background: none; color: #4970c0; border: none;
+      font-size: 1.3em; cursor: pointer; font-weight: bold;
+    }
+    body.dark-mode #painelPassos { background: #232a36; color: #e0e6ed;}
+    body.dark-mode #painelPassos .fechar-painel { color: #7ecfff;}
+    @media (max-width: 600px) {
+      #painelPassos { max-width: 98vw; padding: 16px 6vw 12px 6vw;}
+    }

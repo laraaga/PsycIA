@@ -288,91 +288,11 @@ nav a {
   .action-card { padding: 12px; }
 }
 
-/* ===== Conquistas ===== */
-.conquista {
-  max-width: 600px;
-  margin: 20px auto;
-  background: linear-gradient(135deg, #a0e9d7, #d1f5d3);
-  color: #1a1a3f;
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 18px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  display: none;
-  position: relative;
-  overflow: hidden;
-}
-.conquista.confete::after {
-  content: "🎉🎉🎉";
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  font-size: 24px;
-  animation: cair 1s ease forwards;
-}
+
 @keyframes cair {
   0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
   100% { transform: translateY(40px) rotate(360deg); opacity: 0; }
 }
-.popup-conquista {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #a0e9d7, #d1f5d3);
-  padding: 20px 25px;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  display: none;
-  z-index: 9999;
-  width: 250px;
-  text-align: center;
-  animation: popupIn 0.5s ease forwards;
-}
-.popup-conquista span {
-  font-size: 28px;
-  display: block;
-  margin-bottom: 8px;
-}
-.popup-conquista p {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-.popup-conquista button {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #1a1a3f;
-}
-@keyframes popupIn {
-  0%   { transform: translateY(100px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-#listaConquistas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-}
-.conquista {
-  background: linear-gradient(135deg, #a0e9d7, #d1f5d3);
-  color: #1a1a3f;
-  padding: 15px;
-  border-radius: 12px;
-  font-weight: 600;
-  min-width: 140px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-.conquista span { font-size: 24px; }
 
 /* ===== Modal Perfil ===== */
 .modal-perfil {
@@ -385,6 +305,7 @@ nav a {
   align-items: center;
   z-index: 10000;
   padding: 20px;
+  font-family: Poppins, sans-serif;
 }
 .modal-perfil.active {
   display: flex;
@@ -406,6 +327,7 @@ nav a {
 }
 /* Título e descrição */
 .modal-content h2 {
+  font-family: Poppins, sans-serif;
   margin: 0;
   font-size: 22px;
   font-weight: 600;
@@ -437,6 +359,7 @@ nav a {
   gap: 12px;
 }
 .perfil-opcoes button {
+  font-family: Poppins, sans-serif;
   padding: 12px;
   border-radius: 14px;
   border: none;
@@ -456,33 +379,7 @@ nav a {
 @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 @keyframes scaleUp { from {transform: scale(0.9);} to {transform: 1;} }
 
-/* ===== Conquistas dentro do perfil ===== */
-.conquistas-perfil {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
-.conquistas-perfil .conquista {
-  background: linear-gradient(135deg, #a0e9d7, #d1f5d3);
-  color: #1a1a3f;
-  padding: 12px 18px;
-  border-radius: 18px;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-weight: 600;
-  font-size: 16px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.conquistas-perfil .conquista:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-.conquistas-perfil .conquista span { font-size: 22px; }
+
 
 /* ===== Sobre Nós ===== */
 #sobre-nos {
@@ -629,14 +526,7 @@ body.dark-mode #sobre-nos .descricao-site {
   color: #a9bcd0;
 }
 
-/* Conquistas e popups */
-body.dark-mode .conquista,
-body.dark-mode .conquistas-perfil .conquista,
-body.dark-mode .popup-conquista {
-  background: linear-gradient(135deg, #22304a, #16213a);
-  color: #e0e6ed;
-  box-shadow: 0 4px 12px rgba(24, 40, 72, 0.3);
-}
+
 
 /* Modal perfil */
 body.dark-mode .modal-perfil .modal-content {

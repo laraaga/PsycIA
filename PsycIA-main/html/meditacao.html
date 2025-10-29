@@ -13,7 +13,7 @@
     <i class="fa-regular fa-moon"></i>
   </button>
   <div class="logo">
-    <img src="img/logo.png" alt="Logo" style="height: 85px;" />
+    <img src="../img/logo.png" alt="Logo" style="height: 85px;" />
   </div>
   <nav>
     <ul>
@@ -278,6 +278,20 @@
     window.speechSynthesis.speak(utter);
   }
   
+  // Aplica o modo noturno salvo ao carregar a página
+if (localStorage.getItem("modoNoturno") === "ativo") {
+  document.body.classList.add("dark-mode");
+}
+
+// Função do botão de modo noturno
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("modoNoturno", "ativo");
+  } else {
+    localStorage.setItem("modoNoturno", "inativo");
+  }
+}
   
 </script>
 </body>

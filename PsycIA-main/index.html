@@ -7,23 +7,19 @@
   <link rel="stylesheet" href="../PsycIA-main/css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-
 <body>
   <header>
     <button onclick="toggleDarkMode()" class="modo-btn" id="darkModeBtn">
       <i class="fa-regular fa-moon"></i>
     </button>
-
     <div class="logo">
       <img src="img/logo.png" alt="Logo" style="height: 85px;" />
     </div>
-
     <nav>
       <ul>
         <li><a href="../PsycIA-main/index.html">Início</a></li>
         <li><a href="../PsycIA-main/html/sobre.html">Sobre</a></li>
-      <li><a href="#" id="abrirPerfilLink" onclick="abrirPerfil()"><i class="fa-solid fa-user"></i></a></li>
-
+        <li><a href="#" id="abrirPerfilLink" onclick="abrirPerfil()"><i class="fa-solid fa-user"></i></a></li>
       </ul>
     </nav>
   </header>
@@ -31,25 +27,26 @@
   <main class="container">
     <div class="intro">
       <div class="intro-icon">✨</div>
-      <h2>Como posso te ajudar hoje?</h2><span id="boasVindas"></span>
+      <h2>Como posso te ajudar hoje?</h2>
+      <span id="boas-vindas"></span>
       <p>Estou aqui para te ouvir e oferecer apoio emocional personalizado</p>
     </div>
 
-    <!-- emoçoes-->
-   <section id="emocoes">
-  <div class="botoes-emocoes">
-    <button class="muito-ansioso" onclick="registrarEmocao('Muito Ansioso')">😖 Muito Ansioso</button>
-    <button class="ansioso" onclick="registrarEmocao('Ansioso')">😟 Ansioso</button>
-    <button class="neutro" onclick="registrarEmocao('Neutro')">😐 Neutro</button>
-    <button class="calmo" onclick="registrarEmocao('Calmo')">🙂 Calmo</button>
-    <button class="muito-calmo" onclick="registrarEmocao('Muito Calmo')">😌 Muito Calmo</button>
-  </div>
-  <div id="mensagem-registrada"></div>
-</section>
+    <!-- Emoções -->
+    <section id="emocoes">
+      <div class="botoes-emocoes">
+        <button class="muito-ansioso" onclick="registrarEmocao('Muito Ansioso')">😖 Muito Ansioso</button>
+        <button class="ansioso" onclick="registrarEmocao('Ansioso')">😟 Ansioso</button>
+        <button class="neutro" onclick="registrarEmocao('Neutro')">😐 Neutro</button>
+        <button class="calmo" onclick="registrarEmocao('Calmo')">🙂 Calmo</button>
+        <button class="muito-calmo" onclick="registrarEmocao('Muito Calmo')">😌 Muito Calmo</button>
+      </div>
+      <div id="mensagem-registrada"></div>
+    </section>
 
     <p id="mensagem">Selecione uma emoção acima 👆</p>
 
-    <!-- açoes rapidas -->
+    <!-- Ações rápidas -->
     <section class="quick-actions">
       <h3>Ações Rápidas</h3>
       <div class="actions-grid">
@@ -58,19 +55,16 @@
           <h4>Respirar</h4>
           <p>Exercício rápido</p>
         </div>
-
-       <div class="action-card" onclick="abrirMeditacao()">
+        <div class="action-card" onclick="abrirMeditacao()">
           <div class="icon purple">🧘</div>
           <h4>Meditar</h4>
           <p>5 min de paz</p>
         </div>
-
         <div class="action-card" onclick="abrirGratidao()">
           <div class="icon pink">💖</div>
           <h4>Gratidão</h4>
           <p>Momento positivo</p>
         </div>
-
         <div class="action-card" onclick="acharPsicologos()">
           <div class="icon green">📞</div>
           <h4>Ajuda</h4>
@@ -79,7 +73,7 @@
       </div>
     </section>
 
-    <!-- chat -->
+    <!-- Chat -->
     <div id="chatBox" class="chat-container"></div>
     <div class="chat-bar-container" id="chatBar">
       <input type="text" id="userInput" placeholder="Como está se sentindo hoje?" />
@@ -89,33 +83,25 @@
     </div>
   </main>
 
-  <!-- perfil -->
   <!-- Modal de Perfil -->
-<div id="modalPerfil" class="modal-perfil">
-  <div class="modal-content">
-    <button class="fechar-modal" onclick="fecharPerfil()">✖</button>
-
-    <h2>Meu Perfil 🌙</h2>
-    <p class="descricao-perfil">
-      Aqui você pode acompanhar seu bem-estar e progresso emocional 💛
-    </p>
-    
-    <div class="perfil-opcoes">
-      <!-- No futuro tu pode reativar as outras opções -->
-      <button onclick="window.open('html/historico.html', '_blank')">📖 Histórico Emocional</button>
-      <button onclick="window.open('html/configuracoes.html', '_blank')">⚙️ Configuraçoes</button>
-      <button onclick="logout()">🚪 Sair da conta</button>
-      
-      
+  <div id="modalPerfil" class="modal-perfil">
+    <div class="modal-content">
+      <button class="fechar-modal" onclick="fecharPerfil()">✖</button>
+      <h2>Meu Perfil 🌙</h2>
+      <p class="descricao-perfil">
+        Aqui você pode acompanhar seu bem-estar e progresso emocional 💛
+      </p>
+      <div class="perfil-opcoes">
+        <button onclick="window.open('html/historico.html', '_blank')">📖 Histórico Emocional</button>
+        <button onclick="window.open('html/configuracoes.html', '_blank')">⚙️ Configurações</button>
+        <button onclick="logout()">🚪 Sair da conta</button>
+      </div>
     </div>
   </div>
-</div>
 
 
 
-
-<script src="js/config.js"></script>
-<!-- depois carregar seu script que usa API_KEY -->
-<script src="js/script.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

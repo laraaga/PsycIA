@@ -2,12 +2,9 @@ window.onload = function () {
   const div = document.getElementById("boas-vindas");
   if (!div) return;
 
-  // Tenta pegar o apelido, se não existir pega o nome
   const apelido = localStorage.getItem("apelido");
   const nome = localStorage.getItem("nomeUsuario");
   const genero = localStorage.getItem("generoUsuario");
-
-  // Decide qual nome mostrar
   const nomeParaMostrar = apelido && apelido !== "" ? apelido : nome;
 
   if (nomeParaMostrar && nomeParaMostrar !== "anonimo") {
@@ -59,7 +56,7 @@ async function enviarMensagem(event) {
       chat.scrollTop = chat.scrollHeight;
     }
     input.value = "";
-    return; // impede de continuar e enviar à API
+    return;
   }
 
   if (chatContainer) chatContainer.style.display = "flex";
@@ -162,26 +159,34 @@ function acharPsicologos() {
 }
 
 // --- Dark mode ---
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
+// Aplica o modo noturno salvo ao carregar a página
+if (localStorage.getItem("modoNoturno") === "ativo") {
+  document.body.classList.add("dark-mode");
 }
 
-// --- Perfil e conquistas ---
-const modalPerfil = document.getElementById("modalPerfil");
-const nomeUsuarioModal = document.getElementById("nomeUsuarioModal");
+// Função do botão de modo noturno
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("modoNoturno", "ativo");
+  } else {
+    localStorage.setItem("modoNoturno", "inativo");
+  }
+}
 
+
+// --- Perfil ---
+const modalPerfil = document.getElementById("modalPerfil");
 
 function abrirPerfil() {
   if (!modalPerfil) return;
   modalPerfil.style.display = "flex";
-  const nome = localStorage.getItem("nomeUsuario") || "Usuário";
-
 }
 
 const conteudoModal = document.querySelector("#modalPerfil .modal-content");
 if (conteudoModal) {
   conteudoModal.addEventListener("click", (event) => {
-    event.stopPropagation(); // impede o clique de fechar o modal
+    event.stopPropagation();
   });
 }
 
@@ -194,8 +199,6 @@ function logout() {
   localStorage.removeItem("generoUsuario");
   window.location.href = "html/login.html";
 }
-
-
 
 if (modalPerfil) {
   modalPerfil.addEventListener("click", (event) => {
@@ -216,6 +219,3 @@ function registrarEmocao(emocao) {
     setTimeout(() => mensagem.classList.remove("show"), 3000);
   }
 }
-
-const config = JSON.parse(localStorage.getItem('configuracoes')) || {};
-// Agora você pode usar config.apelido, config.notificacoes, config.idioma, etc.

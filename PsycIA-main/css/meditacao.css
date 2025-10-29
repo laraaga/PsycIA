@@ -57,7 +57,7 @@ nav a {
 
 /* Dark Mode */
 body.dark-mode {
-  background: linear-gradient(120deg, #181c24 0%, #232a36 100%);
+  background: linear-gradient(120deg, #374663 0%, #232a36 100%);
   color: #e0e6ed;
 }
 body.dark-mode header {

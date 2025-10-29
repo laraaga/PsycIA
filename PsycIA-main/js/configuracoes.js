@@ -6,6 +6,20 @@ window.onload = function () {
     document.body.classList.add("dark-mode");
     if (darkModeToggle) darkModeToggle.checked = true;
   }
+  // Aplica o modo noturno salvo ao carregar a página
+if (localStorage.getItem("modoNoturno") === "ativo") {
+  document.body.classList.add("dark-mode");
+}
+
+// Função do botão de modo noturno
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("modoNoturno", "ativo");
+  } else {
+    localStorage.setItem("modoNoturno", "inativo");
+  }
+}
 
   // Sons do chat
   const sonsChat = document.getElementById("sonsChat");

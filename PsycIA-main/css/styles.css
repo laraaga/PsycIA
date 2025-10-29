@@ -158,12 +158,6 @@ nav a {
   margin: 30px 0;
 }
 
-#emocoes h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #1a1a3f;
-}
-
 .botoes-emocoes {
   display: flex;
   justify-content: center;
@@ -246,7 +240,7 @@ nav a {
 }
 
 .action-card {
-  background: #fff;
+  background: #aed2fcb2;
   border-radius: 12px;
   padding: 15px;
   text-align: center;
@@ -288,12 +282,6 @@ nav a {
   .action-card { padding: 12px; }
 }
 
-
-@keyframes cair {
-  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(40px) rotate(360deg); opacity: 0; }
-}
-
 /* ===== Modal Perfil ===== */
 .modal-perfil {
   display: none;
@@ -307,10 +295,6 @@ nav a {
   padding: 20px;
   font-family: Poppins, sans-serif;
 }
-.modal-perfil.active {
-  display: flex;
-  animation: fadeIn 0.3s ease;
-}
 .modal-perfil .modal-content {
   background: #d5f6fd;
   color: #2a2a2a;
@@ -320,12 +304,10 @@ nav a {
   text-align: center;
   position: relative;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  animation: scaleUp 0.3s ease;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
-/* Título e descrição */
 .modal-content h2 {
   font-family: Poppins, sans-serif;
   margin: 0;
@@ -336,7 +318,6 @@ nav a {
   font-size: 14px;
   color: #555;
 }
-/* Botão fechar */
 .fechar-modal {
   position: absolute;
   top: 12px;
@@ -352,7 +333,6 @@ nav a {
   color: #000;
   transform: scale(1.1);
 }
-/* Opções do perfil */
 .perfil-opcoes {
   display: flex;
   flex-direction: column;
@@ -375,87 +355,87 @@ nav a {
   transform: translateY(-2px);
   box-shadow: 0 5px 14px rgba(0,0,0,0.15);
 }
-/* Animações */
-@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-@keyframes scaleUp { from {transform: scale(0.9);} to {transform: 1;} }
 
-
-
-/* ===== Sobre Nós ===== */
 #sobre-nos {
-  background-color: #d5f6fd;
+    background: #d5f6fd;
   padding: 60px 20px;
   text-align: center;
+  font-family: "Poppins", sans-serif;
 }
+
 #sobre-nos h2 {
   font-size: 1.8em;
-  color: #112641;
-  margin-bottom: 20px;
+  color: #2e3a46;
+  margin-bottom: 15px;
   font-weight: 600;
 }
+
 #sobre-nos .descricao-site {
-  color: #4f5d6b;
+  color: #5b6a75;
   max-width: 700px;
-  margin: 0 auto 50px;
-  line-height: 1.7;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  font-size: 0.95em;
 }
+
 .cards-equipe {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap;
 }
+
 .card-membro {
-  background: #c6e8f0;
+  background: #82a8f885;
   border-radius: 15px;
   padding: 25px;
   width: 260px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
+
 .card-membro:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .card-membro img {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  margin-bottom: 15px;
-  opacity: 0.9;
-}
-.card-membro h3 {
-  color: #2e3a46;
-  font-size: 1.1em;
-  margin-bottom: 8px;
-}
-.card-membro p {
-  color: #5f6d7a;
-  font-size: 0.9em;
-  line-height: 1.5;
-}
-@media (max-width: 768px) {
-  .cards-equipe { flex-direction: column; align-items: center; }
-  .card-membro { width: 90%; }
+  object-fit: cover;
+  margin-bottom: 10px;
+  opacity: 0.95;
 }
 
-/* =========================
-   ===== DARK MODE AZUL =====
-   ========================= */
+.card-membro h3 {
+  color: #2e3a46;
+  font-size: 1em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.card-membro p {
+  color: #5b6a75;
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+
+
+/* ===== DARK MODE ===== */
 body.dark-mode {
   background: linear-gradient(135deg, #0a1622 0%, #101926 100%);
   color: #e0e6ed;
 }
-
-/* Header e navegação */
 body.dark-mode header {
   background: url(../img/header2.png);
 }
 body.dark-mode nav a {
   color: #e0e6ed;
 }
-
-/* Botão modo */
 body.dark-mode .modo-btn {
   border-color: #58a6ff;
   color: #58a6ff;
@@ -466,8 +446,6 @@ body.dark-mode .modo-btn:hover {
   color: #e0e6ed;
   transform: rotate(-20deg) scale(1.1);
 }
-
-/* Chat bar */
 body.dark-mode .chat-bar-container input {
   background-color: #1b263b;
   color: #e0e6ed;
@@ -478,8 +456,6 @@ body.dark-mode .chat-bar-container button {
 body.dark-mode .chat-bar-container button:hover {
   background-color: #58a6ff;
 }
-
-/* Chat container */
 body.dark-mode .chat-container {
   background-color: #16213a;
   color: #e0e6ed;
@@ -493,15 +469,12 @@ body.dark-mode .message.bot {
   background-color: #415a77;
   color: #e0e6ed;
 }
-
-/* Emoções  */
 body.dark-mode .botoes-emocoes button.muito-ansioso { background: #7a2b2b; color: #f0f6fc; }
 body.dark-mode .botoes-emocoes button.ansioso { background: #8a5c2c; color: #f0f6fc; }
 body.dark-mode .botoes-emocoes button.neutro { background: #7a7a4f; color: #f0f6fc; }
 body.dark-mode .botoes-emocoes button.calmo { background: #2e5f36; color: #f0f6fc; }
 body.dark-mode .botoes-emocoes button.muito-calmo { background: #2c4f4c; color: #f0f6fc; }
 body.dark-mode .botoes-emocoes button:focus { box-shadow: 0 0 0 4px rgba(45,156,219,0.6); }
-/* Cards de ação */
 body.dark-mode .action-card {
   background: #16213a;
   color: #e0e6ed;
@@ -513,28 +486,17 @@ body.dark-mode .action-card h4 {
 body.dark-mode .action-card p {
   color: #a9bcd0;
 }
-
-/* Títulos e textos */
 body.dark-mode h2,
 body.dark-mode #emocoes h2,
-body.dark-mode #sobre-nos h2,
 body.dark-mode .quick-actions h3 {
   color: #58a6ff;
 }
-body.dark-mode p.descricao,
-body.dark-mode #sobre-nos .descricao-site {
+body.dark-mode .descricao-perfil {
   color: #a9bcd0;
 }
-
-
-
-/* Modal perfil */
 body.dark-mode .modal-perfil .modal-content {
   background: #16213a;
   color: #e0e6ed;
-}
-body.dark-mode .descricao-perfil {
-  color: #a9bcd0;
 }
 body.dark-mode .fechar-modal {
   color: #58a6ff;
@@ -542,32 +504,4 @@ body.dark-mode .fechar-modal {
 body.dark-mode .perfil-opcoes button {
   background: linear-gradient(135deg, #22304a, #274472);
   color: #e0e6ed;
-}
-
-/* Cards equipe */
-body.dark-mode .card-membro {
-  background: #16213a !important;
-  color: #e0e6ed;
-  box-shadow: 0 2px 6px rgba(24, 40, 72, 0.3);
-}
-body.dark-mode .card-membro h3 {
-  color: #58a6ff;
-}
-body.dark-mode .card-membro p {
-  color: #a9bcd0;
-}
-body.dark-mode .card-membro img {
-  opacity: 0.85;
-  filter: grayscale(10%) brightness(0.9);
-}
-
-/* Sobre nós */
-body.dark-mode #sobre-nos {
-  background: #101926;
-}
-body.dark-mode #sobre-nos h2 {
-  color: #58a6ff;
-}
-body.dark-mode #sobre-nos .descricao-site {
-  color: #a9bcd0;
 }

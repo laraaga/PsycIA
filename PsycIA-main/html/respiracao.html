@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Exercício de Respiração</title>
+  
   <link rel="stylesheet" href="../css/respiracao.css">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
 
@@ -107,6 +108,22 @@ function voltarInicio() {
 btnIniciar.addEventListener("click", iniciarRespiracao);
 btnParar.addEventListener("click", pararRespiracao);
 btnVoltar.addEventListener("click", voltarInicio);
+
+
+// Aplica o modo noturno salvo ao carregar a página
+if (localStorage.getItem("modoNoturno") === "ativo") {
+  document.body.classList.add("dark-mode");
+}
+
+// Função do botão de modo noturno
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("modoNoturno", "ativo");
+  } else {
+    localStorage.setItem("modoNoturno", "inativo");
+  }
+}
 
   </script>
 </body>

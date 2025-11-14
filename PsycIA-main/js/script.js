@@ -75,7 +75,7 @@ async function enviarMensagem(event) {
     chat.scrollTop = chat.scrollHeight;
 
     // Chave e chamada da API
-    const chave = "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";
+    const chave = "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"; // SO MUDA AQUI!
     let resposta = "Desculpe, não entendi.";
     try {
       const response = await fetch(
@@ -119,7 +119,7 @@ async function enviarMensagem(event) {
         if (i < resposta.length) {
           botMsg.textContent += resposta.charAt(i);
           i++;
-          setTimeout(digitar, 60);
+          setTimeout(digitar, 1);
           chat.scrollTop = chat.scrollHeight;
         }
       }
@@ -147,7 +147,7 @@ function acharPsicologos() {
         const lat = pos.coords.latitude;
         const lon = pos.coords.longitude;
         window.open(
-          `https://www.google.com/maps/search/psicólogos/@${lat},${lon},14z`,
+          `https://www.google.com/maps/search/psicólogos perto de mim/@${lat},${lon},14z`,
           "_blank"
         );
       },

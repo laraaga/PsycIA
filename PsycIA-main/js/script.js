@@ -75,7 +75,7 @@ async function enviarMensagem(event) {
     chat.scrollTop = chat.scrollHeight;
 
     // Chave e chamada da API
-    const chave = "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"; // SO MUDA AQUI!
+    const chave = "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"; // SO MUDA AQUI!
     let resposta = "Desculpe, não entendi.";
     try {
       const response = await fetch(
@@ -91,7 +91,7 @@ async function enviarMensagem(event) {
             messages: [
               {
                 role: "system",
-                content: "Você é PsicIA, uma IA que conversa como um amigo legal. Use linguagem leve, curta (até 200 caracteres), direta e acolhedora. Seja empático e um pouco racional para ajudar, e use emojis para deixar a mensagem mais amigável. Evite respostas secas ou formais.",
+                content: "Você é PsicIA, uma IA que conversa como um amigo legal. Use linguagem leve, curta (até 500 caracteres), direta e acolhedora. Seja empático e um pouco racional para ajudar, e use emojis para deixar a mensagem mais amigável. Evite respostas secas ou formais.",
               },
               { role: "user", content: texto },
             ],
@@ -100,7 +100,7 @@ async function enviarMensagem(event) {
       );
       const data = await response.json();
       if (data.choices && data.choices[0] && data.choices[0].message) {
-        resposta = data.choices[0].message.content.slice(0, 200);
+        resposta = data.choices[0].message.content.slice(0, 500);
       } else {
         resposta = "Desculpe, não consegui entender.";
       }

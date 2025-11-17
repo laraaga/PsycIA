@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações</title>
+  <link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+<body>
+  <div class="config-container">
+    <h1 class="config-title">Configurações</h1>
+    <p class="config-desc">Personalize sua experiência no site conforme suas preferências.</p>
+    <form id="configForm">
+      <div class="config-item">
+        <h2>🌙 Modo Escuro</h2>
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="config-item">
+        <h2>👤 Apelido</h2>
+        <input type="text" id="apelido" maxlength="20" placeholder="Seu apelido">
+      </div>
+      <div class="config-item">
+        <h2>📧 E-mail</h2>
+        <input type="email" id="email" placeholder="seu@email.com">
+      </div>
+      <div class="btn-container">
+        <button type="submit" class="btn" id="salvar">Salvar</button>
+        <span id="msgSucesso" class="msgSucesso" style="display:none;">
+          <span style="font-size:1.2em;">✅</span> Configurações salvas com sucesso!
+        </span>
+        <button type="button" class="btn" onclick="window.location.href='../index.html'">Voltar ao Início</button>
+      </div>
+    </form>
+  </div>
+  <script src="../js/configuracoes.js"></script>
+</body>
+</html>

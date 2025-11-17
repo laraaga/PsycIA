@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../css/cadastro.css">
+</head>
+<body>
+    <div class="boxchat">
+        <div class="login-box">
+            <h2>CADASTRO</h2>
+            
+            <!-- FORM QUE ENVIA PARA O PHP -->
+            <form id="formCadastro" action="../php/cadastro.php" method="POST" onsubmit="return validarFormulario()">
+                
+                <!-- Nome de usuário -->
+                <div class="input-group">
+                    <label for="new-username">Usuário</label>
+                    <input type="text" id="new-username" name="nome_usuario" placeholder="Escolha um nome de usuário" required>
+                </div>
+
+                <!-- Gênero -->
+                <div class="input-group">
+                    <label for="genero">Gênero</label>
+                    <select id="genero" name="genero_usuario" class="select-genero" required>
+                        <option value="">Selecione...</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="neutro">Prefiro não dizer</option>
+                    </select>
+                </div>
+
+                <!-- Email -->
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email_usuario" placeholder="Digite seu email" required>
+                </div>
+
+                <!-- Senha -->
+                <div class="input-group">
+                    <label for="new-password">Senha</label>
+                    <input type="password" id="new-password" name="senha_usuario" placeholder="Crie uma senha" minlength="6" required>
+                </div>
+
+                <!-- Confirmar Senha -->
+                <div class="input-group">
+                    <label for="confirm-password">Confirmar Senha</label>
+                    <input type="password" id="confirm-password" placeholder="Repita a senha" minlength="6" required>
+                </div>
+
+                <!-- Botão -->
+                <button class="botao" type="submit">Cadastrar</button>
+            </form>
+
+            <!-- Link para login -->
+            <div class="switch-link">
+                <p>Já tem uma conta? <a href="html/login.html">Voltar ao login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Validação do formulário antes de enviar
+        function validarFormulario() {
+            const senha = document.getElementById("new-password").value.trim();
+            const confirmar = document.getElementById("confirm-password").value.trim();
+
+            if (senha !== confirmar) {
+                alert("As senhas não coincidem!");
+                return false; // bloqueia o envio
+            }
+
+            if (senha.length < 6) {
+                alert("A senha deve ter pelo menos 6 caracteres.");
+                return false;
+            }
+
+            return true; // permite enviar para o PHP
+        }
+    </script>
+</body>
+</html>

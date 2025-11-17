@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diário</title>
+  <link rel="stylesheet" href="../css/diario.css" />
+</head>
+<body>
+ 
+
+    <section class="main-area">
+      <div class="container">
+        <h1>📓 Seu Diário Emocional</h1>
+        <p class="subtitle">Escreva sobre seu dia, seus pensamentos ou sentimentos 💬</p>
+
+        <textarea id="diarioTexto" placeholder="Como você está se sentindo hoje?"></textarea>
+
+        <div class="buttons">
+          <button id="salvarBtn" class="btn primary">✨ Salvar Entrada</button>
+          <button id="voltarBtn" class="btn">Voltar ao Início</button>
+        </div>
+
+        <h2 class="entries-title">📅 Suas Entradas</h2>
+        <div id="entradas"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/diario.js"></script>
+</body>
+</html>

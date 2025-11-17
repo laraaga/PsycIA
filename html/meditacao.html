@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meditação</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/meditacao.css">
+</head>
+<body>
+<header>
+  <button onclick="toggleDarkMode()" class="modo-btn" id="darkModeBtn">
+    <i class="fa-regular fa-moon"></i>
+  </button>
+  <div class="logo">
+    <img src="../img/logo.png" alt="Logo" style="height: 85px;" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Início</a></li>
+      <li><a href="#sobre-nos">Sobre</a></li>
+      <li><a href="#" id="abrirPerfilLink" onclick="abrirPerfil()"><i class="fa-solid fa-user"></i></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<h1>Momento de Meditação</h1>
+
+<!-- Emoji Meditação -->
+
+
+  
+
+<!-- Painel Passos -->
+<div id="painelPassos">
+  <button class="fechar-painel" onclick="fecharPainelPassos()">&times;</button>
+  <h3 id="tituloPainel"></h3>
+  <div id="passoAtual"></div>
+  <div class="passo-controls">
+    <button id="btnAnterior" onclick="passoAnterior()">Anterior</button>
+    <span id="indicadorPasso"></span>
+    <button id="btnProximo" onclick="proximoPasso()">Próximo</button>
+  </div>
+</div>
+
+  <!-- Timer Circular -->
+  <div class="timer-container">
+    <svg width="180" height="180" viewBox="0 0 180 180">
+      <circle class="timer-bg" r="80" cx="90" cy="90"></circle>
+      <circle class="timer-progress" r="80" cx="90" cy="90"></circle>
+    </svg>
+    <div class="timer-text" id="cronometro">03:00</div>
+  </div>
+
+  <!-- Som ambiente -->
+  <label for="somSelecionado">Escolha o som ambiente:</label>
+  <select id="somSelecionado">
+    <option value="chuva">Chuva Suave</option>
+    <option value="mar">Som do Mar</option>
+    <option value="floresta">Floresta Tranquila</option>
+    <option value="nenhum">Sem Som</option>
+  </select>
+  <div class="audio-controls">
+    <button id="playPauseBtn" type="button">▶️</button>
+    <span id="nomeSom">Chuva Suave</span>
+  </div>
+  <audio id="somAmbiente" loop>
+    <source id="fonteAudio" src="https://cdn.pixabay.com/audio/2022/08/04/audio_7b75b0d78b.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <p class="orientacao">Relaxe seus ombros, mandíbula e testa...</p>
+  <p class="incentivo">💙 Você merece este momento</p>
+
+  <button id="btnIniciar" type="button">Iniciar Meditação</button>
+  <button class="voltar" onclick="window.location.href='../index.html'">Voltar ao Início</button>
+</main>
+
+<script >
+   // Dark mode toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    if(document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'on');
+    } else {
+      localStorage.setItem('darkMode', 'off');
+    }
+  }
+  if(localStorage.getItem('darkMode') === 'on') {
+    document.body.classList.add('dark-mode');
+  }
+
+  // Sons disponíveis
+  const sons = {
+    mar: "https://cdn.pixabay.com/audio/2023/03/25/audio_73bb93b646.mp3",
+    chuva: "https://cdn.pixabay.com/audio/2022/08/04/audio_7b75b0d78b.mp3",
+    floresta: "https://cdn.pixabay.com/audio/2021/10/15/audio_45674d1b5d.mp3"
+  };
+  const nomes = {
+    mar: "Som do Mar",
+    chuva: "Chuva Suave",
+    floresta: "Floresta Tranquila",
+    nenhum: "Sem Som"
+  };
+  const somSelect = document.getElementById("somSelecionado");
+  const audio = document.getElementById("somAmbiente");
+  const fonteAudio = document.getElementById("fonteAudio");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const nomeSom = document.getElementById("nomeSom");
+  const cronometro = document.getElementById("cronometro");
+  const btnIniciar = document.getElementById("btnIniciar");
+  let tempo = 180;
+  let intervalo = null;
+  function atualizarCronometro() {
+    const min = String(Math.floor(tempo / 60)).padStart(2, '0');
+    const seg = String(tempo % 60).padStart(2, '0');
+    cronometro.textContent = `${min}:${seg}`;
+  }
+  somSelect.addEventListener("change", () => {
+    const valor = somSelect.value;
+    nomeSom.textContent = nomes[valor];
+    if (valor === "nenhum") {
+      audio.pause(); fonteAudio.src = ""; audio.load(); playPauseBtn.textContent = "▶️";
+    } else {
+      fonteAudio.src = sons[valor]; audio.load(); playPauseBtn.textContent = "▶️";
+    }
+  });
+  playPauseBtn.addEventListener("click", () => {
+    if (!fonteAudio.src) return;
+    if (audio.paused) { audio.play(); playPauseBtn.textContent = "⏸️"; }
+    else { audio.pause(); playPauseBtn.textContent = "▶️"; }
+  });
+  btnIniciar.addEventListener("click", () => {
+    tempo = 180; atualizarCronometro();
+    document.querySelector(".orientacao").textContent = "Respire fundo... Sinta o ar entrando e saindo.";
+    document.querySelector(".incentivo").textContent = "Aproveite cada segundo para relaxar.";
+    intervalo = setInterval(() => {
+      if (tempo > 0) { tempo--; atualizarCronometro(); }
+      else {
+        clearInterval(intervalo);
+        document.querySelector(".orientacao").textContent = "Você completou a meditação.";
+        document.querySelector(".incentivo").textContent = "🕊️ Sinta-se orgulhosa de cuidar de si.";
+      }
+    }, 1000);
+    if (somSelect.value !== "nenhum") { audio.play(); playPauseBtn.textContent = "⏸️"; }
+    btnIniciar.style.display = "none";
+  });
+  atualizarCronometro();
+  nomeSom.textContent = nomes[somSelect.value];
+  fonteAudio.src = sons[somSelect.value];
+  audio.load();
+
+  // ====== Meditação guiada ======
+  const tiposMeditacao = [
+    { id: 'rapida', nome: 'Meditação Rápida', descricao: '3 minutos para relaxar.' },
+    { id: 'guiada', nome: 'Meditação Guiada', descricao: 'Siga instruções passo a passo.' },
+    { id: 'ansiedade', nome: 'Para Ansiedade', descricao: 'Ajuda a acalmar a mente.' }
+  ];
+  const passosMeditacao = {
+    rapida: [
+      "Sente-se confortavelmente.",
+      "Feche os olhos e respire fundo.",
+      "Concentre-se na sua respiração por 1 minuto.",
+      "Agradeça a si mesmo por este momento."
+    ],
+    guiada: [
+      "Sente-se com a coluna ereta.",
+      "Inspire contando até 4, expire contando até 6.",
+      "Observe os pensamentos sem julgá-los.",
+      "Sinta seu corpo relaxar a cada expiração."
+    ],
+    ansiedade: [
+      "Coloque a mão no peito e sinta o batimento.",
+      "Respire profundamente 3 vezes.",
+      "Repita mentalmente: 'Estou seguro neste momento'.",
+      "Permita-se relaxar aos poucos."
+    ]
+  };
+  let tipoEscolhido = null;
+  let modoGuia = null;
+  let passosAtuais = [];
+  let passoIndex = 0;
+
+  // Modal de tipos
+  document.getElementById('btnEscolherTipo').onclick = function() {
+    const lista = document.getElementById('listaTipos');
+    lista.innerHTML = '';
+    tiposMeditacao.forEach(tipo => {
+      const li = document.createElement('li');
+      li.innerHTML = `<button onclick="selecionarTipo('${tipo.id}')"><strong>${tipo.nome}</strong><br><span style='font-size:0.9em;'>${tipo.descricao}</span></button>`;
+      lista.appendChild(li);
+    });
+    document.getElementById('modalTipo').style.display = 'flex';
+  };
+  function fecharModalTipo() {
+    document.getElementById('modalTipo').style.display = 'none';
+  }
+  window.selecionarTipo = function(tipoId) {
+    tipoEscolhido = tipoId;
+    fecharModalTipo();
+    document.getElementById('tituloGuia').textContent = tiposMeditacao.find(t=>t.id===tipoId).nome;
+    document.getElementById('modalGuia').style.display = 'flex';
+  };
+  function fecharModalGuia() {
+    document.getElementById('modalGuia').style.display = 'none';
+  }
+  window.escolherGuia = function(modo) {
+    fecharModalGuia();
+    modoGuia = modo;
+    passosAtuais = passosMeditacao[tipoEscolhido] || [];
+    passoIndex = 0;
+    mostrarPainelPassos();
+    if (modoGuia === 'voz') {
+      falarPassoAtual();
+    }
+  };
+
+  // Painel de passos
+  function mostrarPainelPassos() {
+    document.getElementById('painelPassos').style.display = 'block';
+    document.getElementById('tituloPainel').textContent =
+      tiposMeditacao.find(t=>t.id===tipoEscolhido).nome + (modoGuia==='voz' ? " (Voz)" : " (Texto)");
+    atualizarPasso();
+  }
+  function fecharPainelPassos() {
+    document.getElementById('painelPassos').style.display = 'none';
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+  }
+  function atualizarPasso() {
+    document.getElementById('passoAtual').textContent = passosAtuais[passoIndex];
+    document.getElementById('indicadorPasso').textContent = `Passo ${passoIndex+1} de ${passosAtuais.length}`;
+    document.getElementById('btnAnterior').disabled = passoIndex === 0;
+    document.getElementById('btnProximo').disabled = passoIndex === passosAtuais.length-1;
+  }
+  window.proximoPasso = function() {
+    if (passoIndex < passosAtuais.length-1) {
+      passoIndex++;
+      atualizarPasso();
+      if (modoGuia === 'voz') falarPassoAtual();
+    }
+  }
+  window.passoAnterior = function() {
+    if (passoIndex > 0) {
+      passoIndex--;
+      atualizarPasso();
+      if (modoGuia === 'voz') falarPassoAtual();
+    }
+  }
+  function falarPassoAtual() {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utter = new window.SpeechSynthesisUtterance(passosAtuais[passoIndex]);
+    utter.lang = 'pt-BR';
+    window.speechSynthesis.speak(utter);
+  }
+  
+  // Aplica o modo noturno salvo ao carregar a página
+if (localStorage.getItem("modoNoturno") === "ativo") {
+  document.body.classList.add("dark-mode");
+}
+
+// Função do botão de modo noturno
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("modoNoturno", "ativo");
+  } else {
+    localStorage.setItem("modoNoturno", "inativo");
+  }
+}
+  
+</script>
+</body>
+</html>

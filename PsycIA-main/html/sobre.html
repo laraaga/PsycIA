@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+    <header>
+    <button onclick="toggleDarkMode()" class="modo-btn" id="darkModeBtn">
+      <i class="fa-regular fa-moon"></i>
+    </button>
+
+    <div class="logo">
+      <img src="../img/logo.png" alt="Logo" style="height: 85px;" />
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../PsycIA-main/html/sobre.html">Sobre</a></li>
+      <li><a href="#" id="abrirPerfilLink" onclick="abrirPerfil()"><i class="fa-solid fa-user"></i></a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+    <!-- Seção Sobre Nós -->
+<section id="sobre-nos">
+  <div class="container-sobre-nos">
+    <h2>Sobre nós</h2>
+    <p class="descricao-site">
+      Nosso objetivo com este site é oferecer um ambiente seguro e acolhedor para pessoas que buscam apoio emocional, 
+      meditação e recursos de bem-estar. Cada membro da nossa equipe contribuiu para tornar esta experiência 
+      acessível, interativa e educativa.
+    </p>
+    <div class="cards-equipe">
+  
+      <div class="card-membro">
+        <img src="../img/avatar1.png" alt="Membro 1">
+        <h3>Larah</h3>
+        <p>Responsável pelo design e front-end do TCC.</p>
+      </div>
+     
+      <div class="card-membro">
+        <img src="../img/avatar2.png" alt="Membro 2">
+        <h3>Yago</h3>
+        <p>Desenvolvedor back-end, cuida da lógica do site.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="card-membro">
+      <img src="../img/avatar3.png" alt="Membro 3">
+
+        <h3>Vinicius</h3>
+        <p>Pesquisador e desenvolvedor do banco de dados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+<script src="../js/script.js"></script>
+</html>

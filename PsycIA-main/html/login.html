@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login PsicIA</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div class="boxchat">
+        <div class="login-box">
+            <div id="login-area">
+                <h2>LOGIN</h2>
+
+                <!-- Form que envia para o PHP -->
+                <form action="../php/login.php" method="POST" onsubmit="return validarLogin()">
+                    <div class="input-group">
+                        <label for="username">Usuário ou Email</label>
+                        <input type="text" id="username" name="usuario_email" placeholder="Digite seu usuário ou email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="senha_usuario" placeholder="Sua senha" required>
+                        <span class="erro-senha" style="display:none; color:red;">Senha incorreta!</span>
+                    </div>
+
+                    <button class="botao" type="submit">Entrar</button>
+                </form>
+
+                <div class="ou">Ou</div>
+
+                <!-- Botão anônimo -->
+                <form action="../index.html" method="GET" onsubmit="return loginAnonimo()">
+                    <button class="botao2" type="submit">Entrar Anonimamente</button>
+                </form>
+
+                <div class="switch-link">
+                    <p>Não tem uma conta? <a href="../html/cadastro.html">Quero me cadastrar</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Validação simples antes de enviar ao PHP
+        function validarLogin() {
+            const usuario = document.getElementById("username").value.trim();
+            const senha = document.getElementById("password").value.trim();
+
+            if (usuario === "" || senha === "") {
+                alert("Por favor, preencha usuário/email e senha.");
+                return false; // não envia
+            }
+            return true; // permite enviar
+        }
+
+        // Login anônimo (só salva no localStorage e redireciona)
+        function loginAnonimo() {
+            localStorage.setItem("nomeUsuario", "anonimo");
+            return true; // deixa enviar para index.html
+        }
+    </script>
+</body>
+</html>
